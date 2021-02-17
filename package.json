@@ -1,0 +1,23 @@
+{
+  "name": "comfy-ts",
+  "version": "1.0.0",
+  "description": "Reboot of my \"Comfy\" discord bot in TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Miconen/comfy-ts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Miconen/comfy-ts/issues"
+  },
+  "homepage": "https://github.com/Miconen/comfy-ts#readme",
+  "devDependencies": {
+    "ts-node": "^9.1.1"
+  }
+}
