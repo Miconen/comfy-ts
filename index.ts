@@ -1,5 +1,1 @@
-function hello(recipent: string) {
-	return `Hello ${recipent}`;
-}
-
-console.log(hello('world'));
+import * as Discord from "@typeit/discord";
