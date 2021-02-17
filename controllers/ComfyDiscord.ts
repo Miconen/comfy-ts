@@ -1,7 +1,6 @@
 import * as Path from "path";
 import {
 	Discord,
-	Client,
 	On,
 	ArgsOf
 } from "@typeit/discord";
@@ -14,9 +13,7 @@ import {
 })
 export abstract class ComfyDiscord {
 	@On("message")
-	private onMessage(
-		[message]: ArgsOf<"message">,
-	) {
+	private onMessage([message]: ArgsOf<"message">) {
 		console.log(`${message.author.username}: ${message.content}`);
 	}
 }
