@@ -1,22 +1,21 @@
-import * as Discord from "@typeit/discord";
+import * as Path from "path";
+global['appRoot'] = Path.resolve(__dirname);
+require('dotenv').config();
+if (!process.env.API_DISCORD) process.exit(1);
 
-class ComfyModel {
-	constructor() {
-
+declare global {
+	namespace NodeJS {
+		interface ProcessEnv {
+			API_DISCORD: string
+		}
 	}
 }
 
-class ComfyView {
-	constructor() {
+import { start } from "./controllers/StartDiscord";
+start();
 
-	}
-}
+import { ComfyModel } from "./models/ComfyModel";
+import { ComfyView } from "./views/ComfyView";
+import { ComfyController } from "./controllers/ComfyController";
 
-class ComfyController {
-	constructor(model, view) {
-		this.model = model
-		this.view = view
-	}
-}
-
-const app = new Controller(new Model(), new View())
+const App = new ComfyController(new ComfyModel(), new ComfyView());
