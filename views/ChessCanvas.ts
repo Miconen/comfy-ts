@@ -3,26 +3,26 @@ import { Canvas, createCanvas, loadImage } from "canvas";
 export class ChessCanvas {
     private canvasSize: number;
     private tileSize: number;
-    private chessView: Canvas;
+    private chessBoardCanvas: Canvas;
 
     constructor(){
         this.canvasSize = 410;
         this.tileSize = this.canvasSize / 10;
-        this.chessView = this.createBoard();
+        this.chessBoardCanvas = this.drawBoard();
     }
 
-    createBoard(){
-        const chessView = createCanvas(this.canvasSize, this.canvasSize);
-        const cvx = chessView.getContext("2d");
+    drawBoard(){
+        const chessBoardCanvas = createCanvas(this.canvasSize, this.canvasSize);
+        const cvx = chessBoardCanvas.getContext("2d");
 
         loadImage('./images/chessboard.svg').then(image => {
             cvx.drawImage(image, 0, 0);
         })
         
-        return chessView;
+        return chessBoardCanvas;
     }
 
     toImageBuffer(){
-        return this.chessView.toBuffer();
+        return this.chessBoardCanvas.toBuffer();
     }
 }
