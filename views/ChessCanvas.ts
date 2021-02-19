@@ -25,7 +25,7 @@ export class ChessCanvas {
         return chessView;
     }
 
-    toImageStream(){
+    toImageBuffer(){
         return this.chessView.toBuffer();
     }
 }
