@@ -7,7 +7,7 @@ export class ChessCanvas {
 
     constructor(){
         this.canvasSize = 410;
-        this.tileSize = this.canvasSize / 10;
+        this.tileSize = this.canvasSize / 8;
         this.chessBoardCanvas = this.drawBoard();
     }
 
