@@ -6,7 +6,7 @@ export class ChessCanvas {
     private chessView: Canvas;
 
     constructor(){
-        this.canvasSize = 450;
+        this.canvasSize = 410;
         this.tileSize = this.canvasSize / 10;
         this.chessView = this.createBoard();
     }
@@ -15,11 +15,8 @@ export class ChessCanvas {
         const chessView = createCanvas(this.canvasSize, this.canvasSize);
         const cvx = chessView.getContext("2d");
 
-        cvx.fillStyle = 'brown';
-        cvx.fillRect(0, 0, this.canvasSize, this.canvasSize);
-
         loadImage('./images/chessboard.svg').then(image => {
-            cvx.drawImage(image, 25, 25);
+            cvx.drawImage(image, 0, 0);
         })
         
         return chessView;
