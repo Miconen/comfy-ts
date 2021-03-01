@@ -1,16 +1,28 @@
-import { Piece } from './Piece';
+import { Square } from './Square';
+import { Rook } from './pieces/Rook';
+import { Knight } from './pieces/Knight';
+import { Bishop } from './pieces/Bishop';
+import { Queen } from './pieces/Queen';
+import { King } from './pieces/King';
+import { Pawn } from './pieces/Pawn';
 
-export class Board {
+export abstract class Board {
+	private startingPositions: String[];
+	private notations: String[];
 
-	private startingPositions = String[];
-	private positions = Object[];
-	private notation = String[];
+	constructor() {
+		this.startingPositions = [
+			'BR', 'BN', 'BB', 'BQ', 'BK', 'BB', 'BN', 'BR',
+			'BP', 'BP', 'BP', 'BP', 'BP', 'BP', 'BP', 'BP',
+			'', '', '', '', '', '', '', '',
+			'', '', '', '', '', '', '', '',
+			'', '', '', '', '', '', '', '',
+			'', '', '', '', '', '', '', '',
+			'WP', 'WP', 'WP', 'WP', 'WP', 'WP', 'WP', 'WP',
+			'WR', 'WN', 'WB', 'WQ', 'WK', 'WB', 'WN', 'WR'
+		]
 
-	constructor(startingPositions: string[]) {
-
-		this.startingPositions = startingPositions;
-
-		this.notation = [
+		this.notations = [
 			'a8', 'b8', 'c8', 'd8', 'e8', 'f8', 'g8', 'h8',
 			'a7', 'b7', 'c7', 'd7', 'e7', 'f7', 'g7', 'h7',
 			'a6', 'b6', 'c6', 'd6', 'e6', 'f6', 'g6', 'h6',
@@ -20,67 +32,40 @@ export class Board {
 			'a2', 'b2', 'c2', 'd2', 'e2', 'f2', 'g2', 'h2',
 			'a1', 'b1', 'c1', 'd1', 'e1', 'f1', 'g1', 'h1'
 		];
-
 	}
 
-	convertNotation(input: number) {
-		return this.notation[input];
-	}
+	initializeBoard() {
+		var gameBoard: Object[] = new Array();
+		let isWhite: boolean;
 
-	generatePieces() {
-		for (let index = 0; index < this.startingPositions.length; index++) {
-			let position: string = '';
-			let type: string = '';
-			let notation: string = '';
-			let side: string = '';
+		this.startingPositions.forEach((element, index) => {
+			if (element[0] == 'B') isWhite = false;
+			if (element[0] == 'W') isWhite = true;
+			else return;
 
-			if (this.startingPositions[index] === '') {
-				this.positions[index] = {};
-				continue;
-			};
-
-			position = this.convertNotation(index);
-
-			switch (this.startingPositions[index][1]) {
+			switch (element[1]) {
 				case 'R':
-					type = 'Rook';
-					notation = 'R';
+					gameBoard[index] = new Square(0, 0, new Rook(isWhite));
 					break;
-
 				case 'N':
-					type = 'Knight';
-					notation = 'N';
+					gameBoard[index] = new Square(0, 0, new Knight(isWhite));
 					break;
-
 				case 'B':
-					type = 'Bishop';
-					notation = 'B';
+					gameBoard[index] = new Square(0, 0, new Bishop(isWhite));
 					break;
-
 				case 'Q':
-					type = 'Queen';
-					notation = 'Q';
+					gameBoard[index] = new Square(0, 0, new Queen(isWhite));
 					break;
-
 				case 'K':
-					type = 'King';
-					notation = 'K';
+					gameBoard[index] = new Square(0, 0, new King(isWhite));
 					break;
-
 				case 'P':
-					type = 'Pawn';
-					notation = 'P';
-					break;
-
-				default:
+					gameBoard[index] = new Square(0, 0, new Pawn(isWhite));
 					break;
 			}
+		});
 
-			if (this.startingPositions[index][0] === 'B') side = 'black';
-			if (this.startingPositions[index][0] === 'W') side = 'white';
-
-			this.positions = new Piece(position, type, notation, side);
-		}
+		return gameBoard;
 	}
 
 }

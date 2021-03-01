@@ -19,3 +19,4 @@ import { ComfyView } from "./views/ComfyView";
 import { ComfyController } from "./controllers/ComfyController";
 
 const App = new ComfyController(new ComfyModel(), new ComfyView());
+console.log('Bot works?');
