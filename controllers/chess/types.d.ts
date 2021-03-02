@@ -9,6 +9,7 @@ export type Piece = {
 }
 
 export type Board = {
+	resetBoard: Function;
 	initializeBoard: Function;
 }
 
