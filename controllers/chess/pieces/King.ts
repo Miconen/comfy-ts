@@ -1,6 +1,7 @@
 import { Piece } from '../Piece';
+import { Square, Board } from '../types';
 
-export class King<Board, Square> extends Piece<Board, Square> {
+export class King extends Piece {
 
 	private castled: boolean = false;
 
@@ -30,6 +31,7 @@ export class King<Board, Square> extends Piece<Board, Square> {
 
 		let x: number = Math.abs(start.getX() - end.getX());
 		let y: number = Math.abs(start.getY() - end.getY());
+
 		if (x + y === 1) {
 			// check if this move will not result in the king 
 			// being attacked if so return true

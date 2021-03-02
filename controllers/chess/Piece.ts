@@ -1,5 +1,6 @@
-export abstract class Piece<Board, Square> {
+import { Square, Board } from './types';
 
+export abstract class Piece {
 
 	private killed: boolean = false;
 	private white: boolean = false;

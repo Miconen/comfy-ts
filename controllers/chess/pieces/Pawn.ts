@@ -1,6 +1,5 @@
-import { Board } from '../Board';
 import { Piece } from '../Piece';
-import { Square } from '../Square';
+import { Square, Board } from '../types';
 
 export class Pawn extends Piece {
 

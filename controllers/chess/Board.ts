@@ -6,7 +6,7 @@ import { Queen } from './pieces/Queen';
 import { King } from './pieces/King';
 import { Pawn } from './pieces/Pawn';
 
-export abstract class Board {
+export class Board {
 	private startingPositions: String[];
 	private notations: String[];
 
@@ -34,7 +34,7 @@ export abstract class Board {
 		];
 	}
 
-	initializeBoard() {
+	public initializeBoard() {
 		var gameBoard: Object[] = new Array();
 		let isWhite: boolean;
 
