@@ -1,4 +1,4 @@
-export class ComfyModel {
+class ComfyModel {
 	constructor() {
 
 	}

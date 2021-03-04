@@ -1,4 +1,4 @@
-export class ComfyView {
+class ComfyView {
 	constructor() {
 
 	}

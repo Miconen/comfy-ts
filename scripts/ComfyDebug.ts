@@ -8,7 +8,7 @@ interface messageInterface {
 	msg: object;
 }
 
-class ComfyError {
+class ComfyDebug {
 
 	/**
 	 * Levels
@@ -25,35 +25,35 @@ class ComfyError {
 
 	public static setLevel(level: number): void {
 
-		ComfyError.level = level;
+		ComfyDebug.level = level;
 
 	}
 
 	public static getLevel(): number {
 
-		return ComfyError.level;
+		return ComfyDebug.level;
 
 	}
 
 	public static error(error: string, args?: debugInterface): void {
 
-		if (ComfyError.level !== 2 && ComfyError.level !== 3) return;
+		if (ComfyDebug.level !== 2 && ComfyDebug.level !== 3) return;
 
-		console.log(`${ComfyError.errorPrefix} ${error}`);
+		console.log(`${ComfyDebug.errorPrefix} ${error}`);
 
 		if (args?.reply) console.log(args.reply);
-		if (args?.kill) ComfyError.kill(error);
+		if (args?.kill) ComfyDebug.kill(error);
 
 	}
 
 	public static warn(warning: string, args?: debugInterface): void {
 
-		if (ComfyError.level !== 1 && ComfyError.level !== 3) return;
+		if (ComfyDebug.level !== 1 && ComfyDebug.level !== 3) return;
 
-		console.log(`${ComfyError.warningPrefix} ${warning}`);
+		console.log(`${ComfyDebug.warningPrefix} ${warning}`);
 
 		if (args?.reply) console.log(args.reply);
-		if (args?.kill) ComfyError.kill(warning);
+		if (args?.kill) ComfyDebug.kill(warning);
 
 	}
 

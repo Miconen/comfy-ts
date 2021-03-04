@@ -1,5 +1,6 @@
 import { Client } from "@typeit/discord";
-export async function start() {
+
+export async function startDiscordBot() {
 	const client = new Client({
 		classes: [
 			`${global['appRoot']}/controllers/ComfyDiscord.ts`
