@@ -26,6 +26,7 @@
 	},
 	"dependencies": {
 		"@typeit/discord": "^4.0.9",
+		"canvas": "^2.6.1",
 		"discord.js": "^12.5.1",
 		"dotenv": "^8.2.0"
 	}
