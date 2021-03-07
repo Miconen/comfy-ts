@@ -1,4 +1,4 @@
-class ComfyController {
+export default class ComfyController<ComfyModel, ComfyView> {
 
 	private model: ComfyModel;
 	private view: ComfyView;
