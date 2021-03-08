@@ -21,3 +21,13 @@ export type Square = {
 	setY: Function;
 	setPiece: Function;
 }
+
+export type Player = {
+	isWhiteSide: Function;
+	isHumanPlayer: Function;
+}
+
+export type Move = {
+	isCastlingMove: Function;
+	setCastlingMove: Function;
+}

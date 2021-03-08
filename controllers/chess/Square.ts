@@ -10,9 +10,9 @@ export class Square {
 
 	private x: number;
 	private y: number;
-	private piece: Piece;
+	private piece: Piece | null;
 
-	constructor(x: number, y: number, piece: Piece) {
+	constructor(x: number, y: number, piece: Piece | null) {
 
 		this.x = x;
 		this.y = y;
@@ -35,7 +35,7 @@ export class Square {
 
 	}
 
-	public getPiece(): Piece {
+	public getPiece(): Piece | null {
 
 		return this.piece;
 

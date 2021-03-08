@@ -4,10 +4,10 @@ import {
 } from '@typeit/discord';
 
 import { Game } from '../chess/Game';
-import { Player } from '../chess/Player';
+import { Player, HumanPlayer, ComputerPlayer } from '../chess/Player';
 
-let test1 = new Player('test123');
-let test2 = new Player('test321');
+let test1 = new HumanPlayer(true, 'test123');
+let test2 = new ComputerPlayer(false);
 
 export abstract class Test {
 	@Command('testPositions')

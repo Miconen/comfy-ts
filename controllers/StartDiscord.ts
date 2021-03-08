@@ -9,5 +9,5 @@ export async function startDiscordBot() {
 		variablesChar: ":"
 	});
 
-	await client.login(process.env.API_DISCORD);
+	await client.login(process.env['API_DISCORD']);
 }
